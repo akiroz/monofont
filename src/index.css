@@ -1,0 +1,133 @@
+
+/* Generic Styles */
+
+html, body {
+    height: 100vh;
+    width: 100vw;
+    min-width: 800px;
+    min-height: 600px;
+}
+
+body {
+    height: calc(100vh - 2rem);
+    width: calc(100vw - 2rem);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    font-family: monospace;
+}
+
+div.flexspace {
+    flex-grow: 1;
+}
+
+/* Layout Styles */
+
+section.config {
+    flex-grow: 1;
+    display: flex;
+    min-height: 0;
+}
+
+/* Input Section ==================================== */
+
+section.catagory, fieldset.catagory, fieldset.block {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset.block {
+    overflow-y: scroll;
+}
+
+fieldset.catagory > label, fieldset.block > label {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+fieldset.catagory > label {
+    white-space: nowrap;
+}
+
+fieldset.catagory > label > input, fieldset.block > label > input {
+    margin-right: 0.5rem;
+}
+
+/* Render Section ==================================== */
+
+fieldset.render {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset.render > label {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin-top: 0.2rem;
+    white-space: nowrap;
+}
+
+fieldset.render > label > input {
+    margin-left: 1rem;
+    text-align: right;
+    flex-grow: 1;
+    min-width: 0;
+    width: 100%;
+}
+
+fieldset.render > section.preview {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+fieldset.render > section.preview > canvas {
+    width: 44%;
+    border: 1px dashed #000;
+    margin-top: 1rem;
+}
+
+fieldset.render > button {
+    margin-top: 1rem;
+}
+
+/* Output Section ==================================== */
+
+fieldset.output {
+    display: flex;
+}
+
+fieldset.output > div.progress {
+    flex-grow: 1;
+    border: 1px solid #000;
+    padding: 1px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
+
+fieldset.output > div.progress > div.bar {
+    position: absolute;
+    width: calc(0% - 2px);
+    height: calc(100% - 2px);
+    background: #000;
+    color: #FFF;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+}
+
+fieldset.output span.progress {
+    margin-left: 0.5rem;
+}
+
+fieldset.output > button {
+    margin: 0.2rem 0 0.2rem 1rem;
+}
+

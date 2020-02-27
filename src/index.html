@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>monofont</title>
+    <link rel="stylesheet" type="text/css" href="normalize.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+    <section class="config">
+        <section class="catagory">
+            <template class="set">
+                <fieldset class="catagory">
+                    <legend></legend>
+                </fieldset>
+            </template>
+            <template class="opt">
+                <label>
+                    <input type="checkbox" onchange="catagoryUpdate(event);" data-set="" data-opt="">
+                    <span></span>
+                </label>
+            </template>
+        </section>
+        <fieldset class="block">
+            <legend>Block: Basic Multilingual Plane</legend>
+            <template>
+                <label>
+                    <input type="checkbox" onchange="blockUpdate(event);" data-opt="">
+                    <span></span>
+                </label>
+            </template>
+        </fieldset>
+        <fieldset class="render">
+            <legend>Render</legend>
+            <label>
+                Characters
+                <input type="number" value="0" disabled>
+            </label>
+            <label>
+                Width (bytes)
+                <input type="number" value="8">
+            </label>
+            <label>
+                Height (pixel)
+                <input type="number" value="64">
+            </label>
+            <label>
+                Anchor X (pixel)
+                <input type="number" value="32">
+            </label>
+            <label>
+                Anchor Y (pixel)
+                <input type="number" value="32">
+            </label>
+            <label>
+                Pixel Thres (0-255)
+                <input type="number" value="128">
+            </label>
+            <label>
+                Font Family
+                <input type="text" value="Sans-Serif">
+            </label>
+            <label>
+                Font Size
+                <input type="text" value="64px">
+            </label>
+            <label>
+                Test Character
+                <input type="text" value="A">
+            </label>
+            <div class="flexspace"></div>
+            <section class="preview">
+                <canvas width="64" height="64" class="render"></canvas>
+                <canvas width="64" height="64" class="threshold"></canvas>
+            </section>
+            <button>Render (0.0 MB)</button>
+        </fieldset>
+    </section>
+    <fieldset class="output">
+        <legend>Output</legend>
+        <div class="progress">
+            <span class="progress">0.00%</span>
+            <div class="bar">
+                <span class="progress">0.00%</span>
+            </div>
+        </div>
+        <button disabled>Export Index</button>
+        <button disabled>Export Font</button>
+    </fieldset>
+    <script src="index.js"></script>
+</body>
+</html>
