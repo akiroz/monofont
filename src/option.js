@@ -9,7 +9,7 @@ const catagoryOption = [
             ['Lm', 'modifier', false],
             ['Lt', 'titlecase', false],
             ['Lu', 'uppercase', true],
-            ['Lo', 'other', false],
+            ['Lo', 'other', true],
         ]
     },
     {

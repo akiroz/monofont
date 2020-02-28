@@ -16,7 +16,7 @@
             </template>
             <template class="opt">
                 <label>
-                    <input type="checkbox" onchange="catagoryUpdate(event);" data-set="" data-opt="">
+                    <input type="checkbox">
                     <span></span>
                 </label>
             </template>
@@ -25,7 +25,7 @@
             <legend>Block: Basic Multilingual Plane</legend>
             <template>
                 <label>
-                    <input type="checkbox" onchange="blockUpdate(event);" data-opt="">
+                    <input type="checkbox">
                     <span></span>
                 </label>
             </template>
@@ -34,39 +34,39 @@
             <legend>Render</legend>
             <label>
                 Characters
-                <input type="number" value="0" disabled>
+                <input class="chars" type="number" value="0" disabled>
             </label>
             <label>
                 Width (bytes)
-                <input type="number" value="8">
+                <input class="width" type="number" value="8">
             </label>
             <label>
                 Height (pixel)
-                <input type="number" value="64">
+                <input class="height" type="number" value="64">
             </label>
             <label>
                 Anchor X (pixel)
-                <input type="number" value="32">
+                <input class="anchorx" type="number" value="32">
             </label>
             <label>
                 Anchor Y (pixel)
-                <input type="number" value="32">
+                <input class="anchory" type="number" value="32">
             </label>
             <label>
                 Pixel Thres (0-255)
-                <input type="number" value="128">
+                <input class="thres" type="number" value="128">
             </label>
             <label>
                 Font Family
-                <input type="text" value="Sans-Serif">
+                <input class="font" type="text" value="Sans-Serif">
             </label>
             <label>
                 Font Size
-                <input type="text" value="64px">
+                <input class="size" type="text" value="64px">
             </label>
             <label>
                 Test Character
-                <input type="text" value="A">
+                <input class="test" type="text" value="A">
             </label>
             <div class="flexspace"></div>
             <section class="preview">

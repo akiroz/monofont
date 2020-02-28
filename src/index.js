@@ -1,48 +1,32 @@
 
 const { catagoryOption, blockOption } = require('./option');
-
-const Unicode = {
-    Ll: require('unicode-tables/category/Ll'),
-    Lm: require('unicode-tables/category/Lm'),
-    Lo: require('unicode-tables/category/Lo'),
-    Lt: require('unicode-tables/category/Lt'),
-    Lu: require('unicode-tables/category/Lu'),
-    Nd: require('unicode-tables/category/Nd'),
-    Nl: require('unicode-tables/category/Nl'),
-    No: require('unicode-tables/category/No'),
-    Pc: require('unicode-tables/category/Pc'),
-    Pd: require('unicode-tables/category/Pd'),
-    Pe: require('unicode-tables/category/Pe'),
-    Pf: require('unicode-tables/category/Pf'),
-    Pi: require('unicode-tables/category/Pi'),
-    Po: require('unicode-tables/category/Po'),
-    Ps: require('unicode-tables/category/Ps'),
-    Sc: require('unicode-tables/category/Sc'),
-    Sk: require('unicode-tables/category/Sk'),
-    Sm: require('unicode-tables/category/Sm'),
-    So: require('unicode-tables/category/So'),
-};
+const Unicode = require('./unicode.json');
 
 let input = [];
 
-function catagoryUpdate(event) {
+function catagoryUpdate({ target: { checked } }, setIdx, optIdx) {
+    catagoryOption[setIdx].opt[optIdx][2] = checked;
     generateInput();
 }
 
-function blockUpdate(event) {
+function blockUpdate({ target: { checked } }, optIdx) {
+    blockOption[optIdx][3] = checked;
     generateInput();
 }
 
 function generateInput() {
-    input = [];
-}
-
-function renderUpdate() {
-    renderPreview();
-}
-
-function previewUpdate() {
-    renderPreview();
+    const catChars = new Set(
+        catagoryOption
+        .flatMap(cat => cat.opt)
+        .filter(opt => opt[2])
+        .map(opt => opt[0])
+        .flatMap(c => Unicode[c])
+    );
+    input = blockOption
+        .filter(opt => opt[3])
+        .flatMap(opt => Array.from({ length: opt[1] - opt[0] }, (x, i) => i + opt[0]))
+        .filter(c => catChars.has(c));
+    document.querySelector('fieldset.render input.chars').value = input.length;
 }
 
 function renderPreview() {
@@ -64,8 +48,7 @@ catagoryOption.forEach(({ set, opt }, idxSet) => {
         const o = catagoryOptTemplate.content.cloneNode(true);
         o.querySelector('span').textContent = `${desc} (${name})`;
         o.querySelector('input').checked = checked;
-        o.querySelector('input').setAttribute('data-set', idxSet);
-        o.querySelector('input').setAttribute('data-opt', idxOpt);
+        o.querySelector('input').addEventListener('change', e => catagoryUpdate(e, idxSet, idxOpt));
         s.querySelector('fieldset').appendChild(o);
     });
     catagorySection.appendChild(s);
@@ -77,8 +60,12 @@ blockOption.forEach(([lower, upper, name, checked], idx) => {
     const o = blockTemplate.content.cloneNode(true);
     o.querySelector('span').textContent = name;
     o.querySelector('input').checked = checked;
-    o.querySelector('input').setAttribute('data-opt', idx);
+    o.querySelector('input').addEventListener('change', e => blockUpdate(e, idx));
     blockField.appendChild(o);
+});
+
+document.querySelectorAll('fieldset.render input').forEach(input => {
+    input.addEventListener('change', e => renderPreview());
 });
 
 generateInput();
