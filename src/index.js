@@ -212,8 +212,8 @@ catagoryOption.forEach(({ set, opt }, idxSet) => {
     catagorySection.appendChild(s);
 });
 
-const blockTemplate = document.querySelector('fieldset.block > template');
-const blockField = document.querySelector('fieldset.block');
+const blockTemplate = document.querySelector('section.block > template');
+const blockField = document.querySelector('section.block');
 blockOption.forEach(([lower, upper, name, checked], idx) => {
     const o = blockTemplate.content.cloneNode(true);
     o.querySelector('span').textContent = name;

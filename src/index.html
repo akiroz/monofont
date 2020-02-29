@@ -10,20 +10,21 @@
     <section class="config">
         <fieldset class="block">
             <legend>Block: Basic Multilingual Plane</legend>
-            <template>
+            <section class="block">
+                <template>
+                    <label>
+                        <input class="block" type="checkbox">
+                        <span></span>
+                    </label>
+                </template>
                 <label>
-                    <input class="block" type="checkbox">
-                    <span></span>
+                    <input class="custom" type="checkbox">
+                    <div class="custom">
+                        <span>Custom Charset</span>
+                        <textarea></textarea>
+                    </div>
                 </label>
-            </template>
-            <label>
-                <input class="custom" type="checkbox">
-                <div class="custom">
-                    <span>Custom Charset</span>
-                    <textarea></textarea>
-                </div>
-            </label>
-
+            </section>
         </fieldset>
         <section class="catagory">
             <template class="set">
@@ -84,7 +85,7 @@
                 Test Character
                 <input class="test" type="text" value="A" maxlength="1" required>
             </label>
-            <div class="flexspace"></div>
+            <div class="flexspace">.</div>
             <section class="preview">
                 <canvas width="64" height="64" class="render"></canvas>
                 <canvas width="64" height="64" class="thres"></canvas>
@@ -94,14 +95,16 @@
     </section>
     <fieldset class="output">
         <legend>Output</legend>
-        <div class="progress">
-            <span class="progress">0.00%</span>
-            <div class="bar">
+        <section class="output">
+            <div class="progress">
                 <span class="progress">0.00%</span>
+                <div class="bar">
+                    <span class="progress">0.00%</span>
+                </div>
             </div>
-        </div>
-        <a class="exportIndex" disabled>Export Index</a>
-        <a class="exportFont" disabled>Export Font</a>
+            <a class="exportIndex" disabled>Export Index</a>
+            <a class="exportFont" disabled>Export Font</a>
+        </section>
     </fieldset>
     <script src="index.js"></script>
 </body>

@@ -19,6 +19,7 @@ body {
 
 div.flexspace {
     flex-grow: 1;
+    font-size: 0;
 }
 
 /* Layout Styles */
@@ -26,22 +27,28 @@ div.flexspace {
 section.config {
     flex-grow: 1;
     display: flex;
+    flex-direction: row;
     min-height: 0;
+}
+
+input:invalid {
+    border: 1px solid #F33;
 }
 
 /* Input Section ==================================== */
 
-section.catagory, fieldset.catagory, fieldset.block {
+section.catagory, fieldset.catagory, fieldset.block, section.block {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
-fieldset.block {
+section.block {
+    height: calc(100% - 0.5rem);
     overflow-y: scroll;
 }
 
-fieldset.catagory > label, fieldset.block > label {
+fieldset.catagory > label, section.block > label {
     display: flex;
     flex-direction: row;
     align-items: baseline;
@@ -51,18 +58,18 @@ fieldset.catagory > label {
     white-space: nowrap;
 }
 
-fieldset.catagory > label > input, fieldset.block > label > input {
+fieldset.catagory > label > input, section.block > label > input {
     margin-right: 0.5rem;
 }
 
 
-fieldset.block div.custom {
+section.block div.custom {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
-fieldset.block div.custom textarea {
+section.block div.custom textarea {
     resize: none;
     height: 6rem;
 }
@@ -113,17 +120,23 @@ fieldset.output {
     display: flex;
 }
 
-fieldset.output > div.progress {
+section.output {
     flex-grow: 1;
-    border: 1px solid #000;
-    padding: 1px;
     display: flex;
     flex-direction: row;
+}
+
+section.output > div.progress {
+    flex-grow: 1;
+    display: flex;
     align-items: center;
+    flex-direction: row;
+    border: 1px solid #000;
+    padding: 1px;
     position: relative;
 }
 
-fieldset.output > div.progress > div.bar {
+section.output > div.progress > div.bar {
     position: absolute;
     width: 0px;
     height: calc(100% - 2px);
@@ -135,12 +148,12 @@ fieldset.output > div.progress > div.bar {
     overflow: hidden;
 }
 
-fieldset.output span.progress {
+section.output span.progress {
     margin-left: 0.5rem;
     white-space: nowrap;
 }
 
-fieldset.output > a {
+section.output > a {
     text-decoration: none;
     margin: 0.2rem 0 0.2rem 1rem;
     padding: 0.2rem;
