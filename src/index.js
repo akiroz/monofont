@@ -190,7 +190,7 @@ async function render(preview) {
         exportIndex.href = URL.createObjectURL(new Blob([ indexData.buffer ], { type: 'application/octet-stream' }));
         exportFont.style.color = '#000';
         exportFont.style.border = '1px solid #000';
-        exportFont.download = 'font.index.bin';
+        exportFont.download = 'font.data.bin';
         exportFont.href = URL.createObjectURL(new Blob([ outputData.buffer ], { type: 'application/octet-stream' }));
     }
 }
