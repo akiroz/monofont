@@ -8,6 +8,23 @@
 </head>
 <body>
     <section class="config">
+        <fieldset class="block">
+            <legend>Block: Basic Multilingual Plane</legend>
+            <template>
+                <label>
+                    <input class="block" type="checkbox">
+                    <span></span>
+                </label>
+            </template>
+            <label>
+                <input class="custom" type="checkbox">
+                <div class="custom">
+                    <span>Custom Charset</span>
+                    <textarea></textarea>
+                </div>
+            </label>
+
+        </fieldset>
         <section class="catagory">
             <template class="set">
                 <fieldset class="catagory">
@@ -16,20 +33,11 @@
             </template>
             <template class="opt">
                 <label>
-                    <input type="checkbox">
+                    <input class="catagory" type="checkbox">
                     <span></span>
                 </label>
             </template>
         </section>
-        <fieldset class="block">
-            <legend>Block: Basic Multilingual Plane</legend>
-            <template>
-                <label>
-                    <input type="checkbox">
-                    <span></span>
-                </label>
-            </template>
-        </fieldset>
         <fieldset class="render">
             <legend>Render</legend>
             <label>
@@ -37,43 +45,51 @@
                 <input class="chars" type="number" value="0" disabled>
             </label>
             <label>
-                Width (bytes)
-                <input class="width" type="number" value="8">
+                Width (pixel)
+                <input class="width" type="number" value="64" required>
             </label>
             <label>
-                Height (pixel)
-                <input class="height" type="number" value="64">
+                Height (byte)
+                <input class="height" type="number" value="8" required>
             </label>
             <label>
                 Anchor X (pixel)
-                <input class="anchorx" type="number" value="32">
+                <input class="anchorx" type="number" value="32" required>
             </label>
             <label>
                 Anchor Y (pixel)
-                <input class="anchory" type="number" value="32">
+                <input class="anchory" type="number" value="32" required>
             </label>
             <label>
                 Pixel Thres (0-255)
-                <input class="thres" type="number" value="128">
+                <input class="thres" type="number" value="128" min="0", max="255" required>
             </label>
             <label>
                 Font Family
-                <input class="font" type="text" value="Sans-Serif">
+                <input class="font" type="text" value="sans-serif" required>
             </label>
             <label>
-                Font Size
-                <input class="size" type="text" value="64px">
+                Font Size (px)
+                <input class="size" type="number" value="64" required>
+            </label>
+            <label>
+                Index Lower
+                <input class="indexlower" type="text" value="0000" maxlength="4" required>
+            </label>
+            <label>
+                Index Upper
+                <input class="indexupper" type="text" value="FFFF" maxlength="4" required>
             </label>
             <label>
                 Test Character
-                <input class="test" type="text" value="A">
+                <input class="test" type="text" value="A" maxlength="1" required>
             </label>
             <div class="flexspace"></div>
             <section class="preview">
                 <canvas width="64" height="64" class="render"></canvas>
-                <canvas width="64" height="64" class="threshold"></canvas>
+                <canvas width="64" height="64" class="thres"></canvas>
             </section>
-            <button>Render (0.0 MB)</button>
+            <button class="render">Render (0.0 MB)</button>
         </fieldset>
     </section>
     <fieldset class="output">
@@ -84,8 +100,8 @@
                 <span class="progress">0.00%</span>
             </div>
         </div>
-        <button disabled>Export Index</button>
-        <button disabled>Export Font</button>
+        <a class="exportIndex" disabled>Export Index</a>
+        <a class="exportFont" disabled>Export Font</a>
     </fieldset>
     <script src="index.js"></script>
 </body>

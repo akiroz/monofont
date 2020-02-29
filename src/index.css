@@ -55,6 +55,18 @@ fieldset.catagory > label > input, fieldset.block > label > input {
     margin-right: 0.5rem;
 }
 
+
+fieldset.block div.custom {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset.block div.custom textarea {
+    resize: none;
+    height: 6rem;
+}
+
 /* Render Section ==================================== */
 
 fieldset.render {
@@ -125,9 +137,14 @@ fieldset.output > div.progress > div.bar {
 
 fieldset.output span.progress {
     margin-left: 0.5rem;
+    white-space: nowrap;
 }
 
-fieldset.output > button {
+fieldset.output > a {
+    text-decoration: none;
     margin: 0.2rem 0 0.2rem 1rem;
+    padding: 0.2rem;
+    border: 1px solid #888;
+    color: #888;
 }
 
