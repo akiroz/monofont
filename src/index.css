@@ -125,7 +125,7 @@ fieldset.output > div.progress {
 
 fieldset.output > div.progress > div.bar {
     position: absolute;
-    width: calc(0% - 2px);
+    width: 0px;
     height: calc(100% - 2px);
     background: #000;
     color: #FFF;
