@@ -192,6 +192,11 @@ async function render(preview) {
         exportFont.style.border = '1px solid #000';
         exportFont.download = 'font.data.bin';
         exportFont.href = URL.createObjectURL(new Blob([ outputData.buffer ], { type: 'application/octet-stream' }));
+        // Reset
+        document.querySelector('fieldset.block textarea').disabled = false;
+        document.querySelector('fieldset.render button.render').disabled = false;
+        document.querySelectorAll('input').forEach(i => i.disabled = false);
+        blockUpdate({ target: document.querySelector('fieldset.block input.custom') }, -1);
     }
 }
 
@@ -254,5 +259,4 @@ document.querySelector('button.render')
     .addEventListener('click', e => render());
 
 generateInput();
-renderPreview();
 
