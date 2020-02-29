@@ -8,7 +8,9 @@
         "build": "parcel build -o monofont.html src/index.html"
     },
     "devDependencies": {
-        "parcel-bundler": "^1.12.4",
+        "parcel-bundler": "^1.12.4"
+    },
+    "dependencies": {
         "parcel-plugin-inliner": "^1.0.13"
     }
 }

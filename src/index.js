@@ -174,9 +174,9 @@ async function render(preview) {
                         row * width * 8 + width * 7 + col,
                     ];
                     const byte = pxOffset
-                        .map((off, idx) => (image.data[off] ? 1 : 0) << idx)
+                        .map((off, idx) => (image.data[off * 4 + 3] ? 1 : 0) << idx)
                         .reduce((a,b) => a|b);
-                    outputData[outputOffet + row*width + col] = byte;
+                    outputData[outputOffet + row * width + col] = byte;
                 }
             }
         }
