@@ -225,6 +225,20 @@ blockOption.forEach(([lower, upper, name, checked], idx) => {
 document.querySelectorAll('fieldset.render input').forEach(input => {
     input.addEventListener('change', e => renderPreview());
 });
+document.querySelector('fieldset.render input.width')
+    .addEventListener('change', ({ target }) => {
+        if(target.validity.valid) {
+            const half = Math.round(parseInt(target.value) / 2);
+            document.querySelector('fieldset.render input.anchorx').value = half;
+        }
+    });
+document.querySelector('fieldset.render input.height')
+    .addEventListener('change', ({ target }) => {
+        if(target.validity.valid) {
+            const half = parseInt(target.value) * 4;
+            document.querySelector('fieldset.render input.anchory').value = half;
+        }
+    });
 
 document.querySelector('fieldset.block input.custom')
     .addEventListener('change', e => blockUpdate(e, -1));
