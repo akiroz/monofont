@@ -84,7 +84,7 @@
                 Test Character
                 <input class="test" type="text" value="A" maxlength="1" required>
             </label>
-            <div class="flexspace"></div>
+            <div class="flexspace">.</div>
             <section class="preview">
                 <canvas width="64" height="64" class="render"></canvas>
                 <canvas width="64" height="64" class="thres"></canvas>
@@ -94,14 +94,16 @@
     </section>
     <fieldset class="output">
         <legend>Output</legend>
-        <div class="progress">
-            <span class="progress">0.00%</span>
-            <div class="bar">
+        <div class="output">
+            <div class="progress">
                 <span class="progress">0.00%</span>
+                <div class="bar">
+                    <span class="progress">0.00%</span>
+                </div>
             </div>
+            <a class="exportIndex" disabled>Export Index</a>
+            <a class="exportFont" disabled>Export Font</a>
         </div>
-        <a class="exportIndex" disabled>Export Index</a>
-        <a class="exportFont" disabled>Export Font</a>
     </fieldset>
     <script src="index.js"></script>
 </body>
