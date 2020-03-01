@@ -51,13 +51,6 @@ function generateInput(custom) {
     renderPreview();
 }
 
-function ctxSetup(ctx, fontFamily, fontSize) {
-    ctx.font = `${fontSize}px ${fontFamily}`;
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillStyle = '#000';
-}
-
 function thresholdFilter({ width, height, data }, thres) {
     for(let i = 0; i < width * height; i++) {
         const a = data[i*4 + 3];
@@ -116,13 +109,18 @@ async function render(preview) {
 
     const renderCanvas = document.querySelector('canvas.render');
     const thresCanvas = document.querySelector('canvas.thres');
-    renderCanvas.width = thresCanvas.width = width;
-    renderCanvas.height = thresCanvas.height = height * 8;
+    renderCanvas.width = width;
+    renderCanvas.height = height * 8;
+    thresCanvas.width = width * 10;
+    thresCanvas.height = height * 80;
 
     const renderCtx = renderCanvas.getContext('2d');
     const thresCtx = thresCanvas.getContext('2d');
-    ctxSetup(renderCtx, fontFamily, fontSize);
-    ctxSetup(thresCtx, fontFamily, fontSize);
+    renderCtx.font = `${fontSize}px ${fontFamily}`;
+    renderCtx.textAlign = 'center';
+    renderCtx.textBaseline = 'middle';
+    renderCtx.fillStyle = '#000';
+    thresCtx.imageSmoothingEnabled = false;
 
     indexOffset = parseInt(idxLower, 16);
     indexData = new Int32Array(parseInt(idxUpper, 16) - indexOffset);
@@ -150,7 +148,10 @@ async function render(preview) {
         lastT = t;
         const image = renderCtx.getImageData(0, 0, width, height * 8);
         thresholdFilter(image, onThres);
-        thresCtx.putImageData(image, 0, 0);
+        createImageBitmap(image).then(ib => {
+            thresCtx.clearRect(0, 0, width * 10, height * 80);
+            thresCtx.drawImage(ib, 0, 0, width * 10, height * 80);
+        });
         if(!preview) {
             const pc = (((i+1) / charList.length) * 100).toFixed(2);
             const avgFps = fps.length === 60 ? (fps.reduce((a,b) => a+b) / fps.length).toFixed(1) : null;
