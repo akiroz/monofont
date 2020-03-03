@@ -158,9 +158,9 @@ async function render(preview) {
             p1.textContent = `${pc}%` + (avgFps ? `, ${avgFps}fps` : '');
             p2.textContent = `${pc}%` + (avgFps ? `, ${avgFps}fps` : '');
             pBar.style.width = `calc(${pc}% - 2px)`;
-            const outputOffet = i * width * height;
-            if(indexOffset <= cp && cp < indexData.length - indexOffset) {
-                indexData[cp - indexOffset] = outputOffet;
+            const outputOffset = i * width * height;
+            if(indexOffset <= cp && cp < indexOffset + indexData.length) {
+                indexData[cp - indexOffset] = outputOffset;
             }
             for(let row = 0; row < height; row++) {
                 for(let col = 0; col < width; col ++) {
@@ -177,7 +177,7 @@ async function render(preview) {
                     const byte = pxOffset
                         .map((off, idx) => (image.data[off * 4 + 3] ? 1 : 0) << idx)
                         .reduce((a,b) => a|b);
-                    outputData[outputOffet + row * width + col] = byte;
+                    outputData[outputOffset + row * width + col] = byte;
                 }
             }
         }
