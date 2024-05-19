@@ -1,4 +1,4 @@
-
+import numeral from "numeral";
 import { catagoryOption, blockOption } from "./option";
 import Unicode from "./unicode.json";
 
@@ -75,7 +75,7 @@ async function renderPreview() {
     if(inputs.every(i => i.validity.valid) && input.length > 0) {
         render(true);
         renderBtn.disabled = false;
-        renderBtn.textContent = `Render (${(outputData.length/1000).toFixed(1)}KB)`;
+        renderBtn.textContent = `Render (${numeral(outputData.length).format("0.0 b")})`;
     } else {
         renderBtn.disabled = true;
         renderBtn.textContent = "Render";
