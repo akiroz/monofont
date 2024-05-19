@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>monofont</title>
-    <link rel="stylesheet" type="text/css" href="normalize.css">
-    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/normalize.css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="src/index.css">
 </head>
 <body>
     <section class="config">
@@ -59,11 +59,11 @@
             </label>
             <label>
                 Anchor Y (pixel)
-                <input class="anchory" type="number" value="32" required>
+                <input class="anchory" type="number" value="34" required>
             </label>
             <label>
                 Pixel Thres (0-255)
-                <input class="thres" type="number" value="128" min="0", max="255" required>
+                <input class="thres" type="number" value="128" min="0" max="255" required>
             </label>
             <label>
                 Font Family
@@ -106,6 +106,6 @@
             <a class="exportFont" disabled>Export Font</a>
         </section>
     </fieldset>
-    <script src="index.js"></script>
+    <script type="module" src="src/index.mjs"></script>
 </body>
 </html>

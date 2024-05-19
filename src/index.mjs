@@ -1,6 +1,6 @@
 
-const { catagoryOption, blockOption } = require('./option');
-const Unicode = require('./unicode.json');
+import { catagoryOption, blockOption } from "./option";
+import Unicode from "./unicode.json";
 
 let input = [];
 let indexOffset = 0;
@@ -260,4 +260,4 @@ document.querySelector('button.render')
     .addEventListener('click', e => render());
 
 generateInput();
-
+document.title = `monofont ${window.__VERSION__}`;

@@ -1,7 +1,5 @@
-
-
 // Name, Description, Default enable
-const catagoryOption = [
+export const catagoryOption = [
     {
         set: 'Letter',
         opt: [
@@ -44,7 +42,7 @@ const catagoryOption = [
 ];
 
 // Lower point, Upper point, Name, Default enable
-const blockOption = [
+export const blockOption = [
     [0x0000, 0x007F, 'Basic Latin', true],
     [0x0080, 0x00FF, 'Latin-1 Supplement', false],
     [0x0100, 0x017F, 'Latin Extended-A', false],
@@ -207,6 +205,3 @@ const blockOption = [
     [0xFF00, 0xFFEF, 'Halfwidth and Fullwidth Forms', false],
     [0xFFF0, 0xFFFF, 'Specials', false],
 ];
-
-module.exports = { catagoryOption, blockOption };
-

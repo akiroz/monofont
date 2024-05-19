@@ -1,16 +1,15 @@
 {
-    "browserslist": [
-        "Chrome >= 80",
-        "Firefox >= 73"
-    ],
-    "scripts": {
-        "dev": "parcel src/index.html",
-        "build": "parcel build -o monofont.html src/index.html"
-    },
-    "devDependencies": {
-        "parcel-bundler": "^1.12.4"
-    },
-    "dependencies": {
-        "parcel-plugin-inliner": "^1.0.13"
-    }
+  "version": "2.0.0",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "rollup": "^4.17.2",
+    "vite": "^5.2.11",
+    "vite-plugin-singlefile": "^2.0.1"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  }
 }
